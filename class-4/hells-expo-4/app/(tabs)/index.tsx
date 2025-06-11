@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef  } from 'react'
-import { FlatList } from 'react-native'
+import { FlatList, TextInput } from 'react-native'
 
 import { Screen  } from '@/components/share/Screen'
 import { Text } from '@/components/share/Text'
@@ -15,6 +15,7 @@ export default function HomeScreen() {
   const [loading, setLoading ] = useState(false)
   const refList = useRef<FlatList>(null)
   const [races, setRaces] = useState<string[]>([])
+  const [query, setQuery] = useState('')
 
   useCallback(async () => {
     await fetchCharacters()
@@ -51,6 +52,22 @@ export default function HomeScreen() {
   console.info('characters: ', characters)
   return (
     <Screen scroll={false}>
+      <TextInput
+        placeholder='Buscar...'
+        value={query}
+        onChangeText={(text) => {
+          setQuery(text)
+        }}
+        style={{
+          borderWidth: 0.5,
+          borderColor: 'red',
+          borderRadius: 12,
+          paddingHorizontal: 12,
+          paddingVertical: 6,
+        }}
+        keyboardType='default'
+        inputMode='search'
+      />
      <ListOptions
         options={races}
         onPress={(value, index) => refList?.current?.scrollToIndex({ index, animated: true })}

@@ -3,16 +3,20 @@
 
 
 
-## Componentes
+# Build
+
+```bash
+./node_modules/.bin/expo build:android --device
+./node_modules/.bin/expo build:ios
+```
 
 
 
 
-## Challenge (ver solution)
+## Challenge 
 
-- Mostrar una lista de "race"  en forma horizontal
-- Mostrar una lista de personajes, pero separados por "race".
-  - Mostramos por ejemplo "Saiyan" y una lista horizontal con todos los personajes de ese "race"
-- Al hacer tap en un "race " de la lista horizontal, se desplaza a la lista de personajes de ese "race"
+- Implementar el TextInput para buscar personajes
+- Si encuentra un personaje, que la lista se desplaza a ese race
+
 
 
